@@ -1,0 +1,6 @@
+{
+  "name": "OpenResume Hebrew",
+  "description": "Hebrew & BiDi resume builder with PDF import, bidirectional text editing, and David 11pt typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Font Family definitions for Hebrew Resume Standards */
+  .font-david {
+    font-family: 'David Libre', 'David', 'David CLM', 'Times New Roman', serif;
+  }
+
+  .font-frank {
+    font-family: 'Frank Ruhl Libre', 'Frank Ruhl', serif;
+  }
+
+  .font-heebo {
+    font-family: 'Heebo', sans-serif;
+  }
+
+  .font-rubik {
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .font-assistant {
+    font-family: 'Assistant', sans-serif;
+  }
+
+  /* Requirement 1: Native CSS BiDi support for mixed Hebrew/English editing */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    direction: auto;
+    unicode-bidi: plaintext;
+  }
+}
+
+/* BiDi Isolation and Text alignment utilities */
+.bidi-auto {
+  direction: auto;
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+.bidi-isolate {
+  unicode-bidi: isolate;
+}
+
+.bidi-override-ltr {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+/* Bullet list marker stability for mixed RTL/LTR */
+.resume-bullet-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  direction: rtl;
+  text-align: right;
+}
+
+.resume-bullet-marker {
+  flex-shrink: 0;
+  user-select: none;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.resume-bullet-content {
+  flex-grow: 1;
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* Standard A4 Paper preview */
+.a4-page {
+  width: 210mm;
+  min-height: 297mm;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* Print Rules for 1:1 Vector PDF Export */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .a4-page {
+    width: 100% !important;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
